@@ -8,14 +8,28 @@ public class ThirdTask {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter arrays size: ");
         a = scanner.nextInt();
-        Random random = new Random();
 
         int[] arr = new int[a];
+        setRandomArray(a, arr);
+        System.out.println(Arrays.toString(arr));
+        bubbleSort(a, arr);
+        System.out.println(Arrays.toString(arr));
+
+        System.out.println();
+
+        int[] arr2 = new int[a];
+        setRandomArray(a, arr2);
+        System.out.println(Arrays.toString(arr2));
+        insertionSort(a, arr2);
+        System.out.println(Arrays.toString(arr2));
+    }
+    public static void setRandomArray(int a, int[] arr) {
+        Random random = new Random();
         for (int i = 0; i < a; i++) {
             arr[i] = random.nextInt(100);
         }
-        System.out.println(Arrays.toString(arr));
-
+    }
+    public static void bubbleSort (int a, int[] arr) {
         boolean sort = false;
         int b;
         while (!sort) {
@@ -29,24 +43,17 @@ public class ThirdTask {
                 }
             }
         }
-        System.out.println(Arrays.toString(arr));
-        System.out.println();
+    }
 
-        int[] arr2 = new int[a];
-        for (int i = 0; i < a; i++) {
-            arr2[i] = random.nextInt(100);
-        }
-        System.out.println(Arrays.toString(arr2));
-
+    public static void insertionSort (int a, int[] arr) {
         for (int i = 1; i < a; i++) {
-            int c = arr2[i];
+            int c = arr[i];
             int j = i - 1;
-            while (j >= 0 && c < arr2[j]) {
-                arr2[j + 1] = arr2[j];
+            while (j >= 0 && c < arr[j]) {
+                arr[j + 1] = arr[j];
                 j--;
             }
-            arr2[j + 1] = c;
+            arr[j + 1] = c;
         }
-        System.out.println(Arrays.toString(arr2));
     }
 }

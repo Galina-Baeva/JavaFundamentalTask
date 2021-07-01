@@ -1,36 +1,39 @@
 public class FirstTask {
-    public static void main (String[] args) {
+
+    public static void main(String [] args){
         int a = 5;
-        int b = 6;
-        int c = 4;
-        int d = 4;
-        int min = 0;
-// min between 2
-        if (a <= b) {
-            min = a;
-        } else {
-            min = b;
-        }
-        System.out.println(min);
-// min between 3
-        if (a <= b && a <= c) {
-            min = a;
-        } else if (b <= c) {
-            min = b;
-        } else {
-            min = c;
-        }
-        System.out.println(min);
-// min between 4
-        if (a <= b && a <= c && a <= d) {
-            min = a;
-        } else if (b <= c && b <= d) {
-            min = b;
-        } else if (c <= d) {
-            min = c;
-        } else {
-            min = d;
-        }
+        int b = 1;
+        int c = 23;
+        int d = 16;
+        int min = minFromFour(a, b, c, d);
         System.out.println(min);
     }
+
+    public static int minFromTwo(int a, int b) {
+        if (a <= b) {
+            return a;
+        } else {
+            return b;
+        }
+    }
+
+    public static int minFromThree(int a, int b, int c) {
+        int min = minFromTwo(a, b);
+        if (c <= min) {
+            return c;
+        } else {
+            return min;
+        }
+    }
+
+    public static int minFromFour (int a, int b, int c, int d) {
+        int min = minFromThree(a, b, c);
+        if (d <= min) {
+            return d;
+        } else {
+            return min;
+        }
+    }
+
 }
+
